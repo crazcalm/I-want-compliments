@@ -1,4 +1,4 @@
-mod db;
+pub mod db;
 mod errors;
 
 pub fn add(left: usize, right: usize) -> usize {

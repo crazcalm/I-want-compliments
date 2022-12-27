@@ -7,10 +7,10 @@ use crate::errors;
 
 pub type DB = Rc<Connection>;
 
-pub fn get_connection() -> Result<Connection, errors::Error> {
+pub fn get_connection() -> Result<DB, errors::Error> {
     let path = Path::new("compliments.db");
 
-    Ok(Connection::open(path)?)
+    Ok(Rc::new(Connection::open(path)?))
 }
 
 pub fn get_in_memory_connection() -> Result<DB, errors::Error> {
